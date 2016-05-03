@@ -5,11 +5,42 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
   </head>
-  <body>
+  <style>
+  
+    h1 {
+      font-family: Trebuchet MS;
+    }
+    
+    body {
+      background-image: url("http://designstacks.net/content_images/AdobePhotoshop/ART-D/tutorial613/17.jpg");
+      background-position: 70px 50px;
 
+    }
+    
+  </style>
+  <body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Fwitter</a>
+    </div>
+      <ul>
+        <% if logged_in? %>
+            <li>Welcome, <%= current_user.username %></li>
+            <li><a href="/tweet">Post a Tweet!</a></li>
+            <li><a href="/logout">Logout</a></li>
+        <% else %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+        <% end %>
+      </ul>
+      </div>
+    </nav>
     <div class="container">
+ 
       <h1>Welcome to Fwitter!</h1>
-      <%= yield %> 
+ 
+      <%= yield %>    
       
       
     </div>
@@ -17,3 +48,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
 </html>
+
